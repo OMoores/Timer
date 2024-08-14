@@ -1,4 +1,4 @@
-cmake_minimum_required(3.2)
+cmake_minimum_required(VERSION 3.2)
 project(Timer)
 
 # Include FetchContent module to download and manage GoogleTest
