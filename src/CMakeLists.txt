@@ -5,3 +5,5 @@ add_library(
     timer.cpp
     timer.h
 )
+
+target_include_directories(Timer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

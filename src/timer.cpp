@@ -1,27 +1,29 @@
-#include "timer.h"
-
+#include <thread>
 
 /**
  * Creates a timer object runs a function after a certain amount of time has elapsed
  */
 class SimpleTimer {
-    long long int startTime = 0;
     public:
         long long int startTime = 0;
 
         /**
-         * Creates a timer object
-         * 
-         * This object will start a new thread that sleeps for the desired number of milliseconds
-         * A function is run after the desired number of ms have elapsed
-         * 
-         * ms, func, args
+         * Creates a simple timer object that will run a function after a certain amount of time
          */
         SimpleTimer(int milliseconds, void (*func)()) {
-            startTimer(milliseconds);
+            //startTimer(milliseconds, func);
         }
-        void startTimer(int milliseconds) {
-            std::thread thread_obj(sleepThread, milliseconds);
+
+        ~SimpleTimer() {
+            if (timerThread.joinable()) {
+                timerThread.join();
+            }
+        }
+
+
+        void startTimer(int milliseconds, void (*func)()) {
+            // Creates a thread which sleeps for requested number of seconds
+            timerThread = std::thread(SimpleTimer::sleepThread, this, milliseconds);
             startTime = getTimeSinceEpochMS();
         }
         long long int getTimePassed() {
@@ -29,6 +31,8 @@ class SimpleTimer {
             return timePassed;
         }
     private:
+        /** A thread variable to store timer thread, created here so can be joined in destructor */
+        std::thread timerThread;
         void sleepThread(int milliseconds) {
             std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
         }

@@ -3,7 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\mingw64\\include"
+                "C:\\mingw64\\include",
+                "${workspaceFolder}/code",
+                "${workspaceFolder}/bin/_deps/googletest-src/googletest/include",
+                "${workspaceFolder}/src"
             ],
             "defines": [
                 "_DEBUG",
