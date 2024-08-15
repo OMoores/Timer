@@ -3,6 +3,8 @@ add_executable(
     Test_Timer.cpp
 )
 
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR})
+
 target_link_libraries(
     Test_Timer
     GTest::gtest_main

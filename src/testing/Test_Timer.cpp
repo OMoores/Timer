@@ -1,15 +1,17 @@
 #include <gtest/gtest.h>
 #include "timer.h"
+#include <iostream>
 
 
 
 void nullfunc() {
-
+    std::cout << "Done thread stuff" << std::endl;
 }
 
 
 int main() {
-    //SimpleTimer simpt(500,&nullfunc);
+    std::cout << "STARTED" << std::endl;
+    SimpleTimer simpt(500,&nullfunc);
 }
 // // Demonstrate some basic assertions.
 // TEST(SimpleTimerTest, ConstructorTest) {
