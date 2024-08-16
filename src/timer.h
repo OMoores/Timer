@@ -4,6 +4,10 @@
 #include <thread>
 
 
+/**
+ * There seems to be a problem with implementing classes accross a header and a cpp file
+ * need to find a way around this or just implement in header file?
+ */
 
 
 class SimpleTimer {
