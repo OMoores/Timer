@@ -4,14 +4,16 @@
 
 
 
-void nullfunc() {
+int nullfunc() {
     std::cout << "Done thread stuff" << std::endl;
+
+    return 0;
 }
 
 
 int main() {
     std::cout << "STARTED" << std::endl;
-    SimpleTimer simpt(500,&nullfunc);
+    SimpleTimer<int> simpt(500,&nullfunc);
 }
 // // Demonstrate some basic assertions.
 // TEST(SimpleTimerTest, ConstructorTest) {

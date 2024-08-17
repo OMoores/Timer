@@ -1,10 +1,11 @@
 #include <timer.h>
 
 
-SimpleTimer::SimpleTimer(int milliseconds, void (*func)()) {
-    timerFunc = func;
-    startTimer(milliseconds, timerFunc);
-}
+
+// SimpleTimer::SimpleTimer(int milliseconds, void (*func)()) {
+//     timerFunc = func;
+//     startTimer(milliseconds, timerFunc);
+// }
 
 // SimpleTimer::~SimpleTimer() {
 //     if (timerThread.joinable()) {
