@@ -18,13 +18,9 @@ class SimpleTimer {
         /** Initiallises the timer and starts it, will run func when it expires */
         SimpleTimer(int milliseconds, funcReturnType (*func)(Args... args), Args... args);
 
-        ~SimpleTimer(){
-            if (timerThread.joinable()) {
-                timerThread.join();
-            }
-        }
+        ~SimpleTimer();
 
-        funcReturnType startTimer(int milliseconds, funcReturnType (*func)(Args... args), Args... args);
+        void startTimer(int milliseconds, funcReturnType (*func)(Args... args), Args... args);
         long long int getTimePassed();
     private:
         std::thread timerThread;
